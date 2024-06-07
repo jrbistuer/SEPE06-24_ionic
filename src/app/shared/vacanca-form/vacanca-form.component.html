@@ -1,0 +1,10 @@
+<form [formGroup]="vacancaForm">
+    <div>
+        Nom: <input type="text" formControlName="nom"><br>
+        Preu: <input type="text" formControlName="preu"><br>
+        descripcio: <input type="text" formControlName="descripcio"><br>
+        actiu: <input type="checkbox" formControlName="actiu"><br>
+        user: <input type="text" formControlName="user"><br>
+        <button mat-flat-button color="primary" (click)=outputVacanca()>{{buttonName}}</button>
+    </div>
+</form>
