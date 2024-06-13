@@ -1,23 +1,9 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      EXAMPLE
-    </ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="logOut()">
-        <ion-icon name="log-out-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>  
-  </ion-toolbar>
-</ion-header>
+<app-header [title]="title"></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">EXAMPLE</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-<h1>EXAMPLE</h1>
+  <h1>Exemple Subject</h1>
+
+  <app-advert></app-advert>
 
 </ion-content>

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { IVacanca } from '../model/interfaces';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IconOptions } from '@angular/material/icon';
+import { IVacanca } from '../models/interfaces';
 
 @Injectable({
   providedIn: 'root'
