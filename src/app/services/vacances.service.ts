@@ -1,52 +1,42 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Firestore, collection, collectionData, doc, docData, addDoc, deleteDoc, updateDoc, query, where } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { IVacanca } from '../models/interfaces';
+import { Auth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VacancesService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private firestore: Firestore,
+    private auth: Auth
+  ) { }
 
   getVacances(): Observable<IVacanca[]> {
-//    if (window.localStorage.getItem('vacances') !== null) {
-//      return JSON.parse(window.localStorage.getItem('vacances')!);
-//    } else {
-//      return [];
-//    }
-    return this.http.get<IVacanca[]>('http://demo6402609.mockable.io/vacances');
+    const vacancesRef = collection(this.firestore, 'vacances');
+    const q = query(vacancesRef, where('user', '==', this.auth.currentUser!.uid) );
+    return collectionData(q, { idField: 'id'}) as Observable<IVacanca[]>;
   }
 
-  setVacanca(vacanca: IVacanca) {
-    //const vacances = this.getVacances();
-    //vacances.push(vacanca);
-    //this.saveVacances(vacances);
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post<IVacanca>('http://demo6402609.mockable.io/vacances', vacanca, { headers });
+  getVacancaById(id: string): Observable<IVacanca> {
+    const vacancaDocRef = doc(this.firestore, `vacances/${id}`);
+    return docData(vacancaDocRef, { idField: 'id' }) as Observable<IVacanca>;
   }
 
-  editVacanca(i: number, v: IVacanca) {
-    const vacances = this.getVacances();
-   // vacances[i] = v;
-   // this.saveVacances(vacances);
+  addVacanca(vacanca: IVacanca) {
+    const vacancesRef = collection(this.firestore, 'vacances');
+    return addDoc(vacancesRef, vacanca);
   }
 
-  getVacancaByIndex(index: number) {
-    const vacances = this.getVacances();
-   // return vacances[index];
+  deleteVacanca(vacanca: IVacanca) {
+    const vacancaDocRef = doc(this.firestore, `vacances/${vacanca.id}`);
+    return deleteDoc(vacancaDocRef);
   }
 
-  removeVacancaByIndex(index: number) {
-    const vacances = this.getVacances();
-  //  vacances.splice(index, 1);
-  //  this.saveVacances(vacances);
-  }
-
-  private saveVacances(vacances: IVacanca[]) {
-    window.localStorage.setItem('vacances', JSON.stringify(vacances));
+  updateVacancae(vacanca: IVacanca) {
+    const vacancaDocRef = doc(this.firestore, `vacances/${vacanca.id}`);
+    return updateDoc(vacancaDocRef, { ...vacanca });
   }
 
 }

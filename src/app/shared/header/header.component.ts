@@ -30,7 +30,6 @@ export class HeaderComponent implements OnDestroy {
       happyOutline
     });
     this.subscription = this.messageService.onMessage().subscribe((showSmiley: any) => {
-      console.log(showSmiley.text);
       this.showSmiley = showSmiley.text;
     });
   }

@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
     console.log('registred')
 
 		if (user) {
-			this.router.navigateByUrl('/home', { replaceUrl: true });
+			this.router.navigateByUrl('/', { replaceUrl: true });
 		} else {
 			console.log('Registration failed', 'Please try again!');
 		}

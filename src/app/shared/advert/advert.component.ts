@@ -19,7 +19,6 @@ export class AdvertComponent {
   toggleSmiley() {
 //    this.headerService.showSmiley();
     this.showSmiley = !this.showSmiley;
-    console.log(this.showSmiley);    
     this.messageService.sendMessage(this.showSmiley)
   }
 

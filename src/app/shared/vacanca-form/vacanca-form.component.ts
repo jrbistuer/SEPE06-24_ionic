@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IVacanca } from '../../../model/interfaces';
-import {MatButtonModule} from '@angular/material/button';
+import { IVacanca } from 'src/app/models/interfaces';
+import { IonButton } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-vacanca-form',
   standalone: true,
-  imports: [ FormsModule, ReactiveFormsModule, MatButtonModule ],
+  imports: [IonButton,  FormsModule, ReactiveFormsModule ],
   templateUrl: './vacanca-form.component.html',
   styleUrl: './vacanca-form.component.scss'
 })
@@ -40,8 +40,7 @@ export class VacancaFormComponent {
       nom: new FormControl('', [Validators.required]),
       preu: new FormControl(''),
       descripcio: new FormControl(''),
-      actiu: new FormControl(''),
-      user: new FormControl(''),
+      actiu: new FormControl('')
     });
   }
 
@@ -51,13 +50,12 @@ export class VacancaFormComponent {
       nom: v.nom,
       preu: v.preu,
       descripcio: v.descripcio,
-      actiu: v.actiu,
-      user: v.user
+      actiu: v.actiu
     })
   }
 
   outputVacanca() {
-    console.log(this.vacancaForm);
+   //console.log(this.vacancaForm);
 
     if(this.vacancaForm.valid) {
       const v: IVacanca = {
@@ -65,7 +63,7 @@ export class VacancaFormComponent {
         preu: +this.vacancaForm.get('preu')?.value,
         descripcio: this.vacancaForm.get('descripcio')?.value,
         actiu: true,
-        user: this.vacancaForm.get('user')?.value,
+        user: ''
       }
       this.outVacanca.emit(v);
     } else {
