@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent, IonIcon, IonFabButton, IonFab, IonModal, IonHeader, IonToolbar, IonButtons, IonButton, IonTitle, IonItem, IonInput, IonList, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
+import { IonContent, IonIcon, IonFabButton, IonFab, IonModal, IonHeader, IonToolbar, IonButtons, IonButton, IonTitle, IonItem, IonInput, IonList, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonLabel, IonThumbnail } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { add } from 'ionicons/icons';
 import { IVacanca } from 'src/app/models/interfaces';
@@ -15,7 +15,7 @@ import { Auth } from '@angular/fire/auth';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
   standalone: true,
-  imports: [IonCardContent, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonList, IonInput, IonItem, IonTitle, IonButton, IonButtons, IonToolbar, IonHeader, IonModal, IonFab, IonFabButton, IonIcon, IonContent, HeaderComponent, FormsModule, VacancaFormComponent]
+  imports: [IonLabel, IonCardContent, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonList, IonInput, IonItem, IonTitle, IonButton, IonButtons, IonToolbar, IonHeader, IonModal, IonFab, IonFabButton, IonIcon, IonContent, HeaderComponent, FormsModule, VacancaFormComponent, IonThumbnail]
 })
 export class Tab2Page implements OnInit {
 
