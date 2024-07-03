@@ -4,5 +4,25 @@ export interface IVacanca {
     preu: number;
     descripcio: string;
     actiu: boolean;
-    user: string;
+    user?: string;
+}
+
+export interface IPushNotification {
+    actionId: string;
+    notification: {
+        id: string;
+        data: {
+            google: {
+                delivered_priority: string;
+                original_priority: string;
+            },
+            descripcio: string;
+            id: string;
+            nom: string;
+            from: string;
+            preu: string;
+            actiu: string;
+            collapse_key: string;
+        }
+    }
 }
