@@ -2,8 +2,15 @@
 
 <ion-content [fullscreen]="true">
 
-    <h1>Test MAPS</h1>
+  <h1>Test MAPS</h1>
 
-    <div id="map"></div>
+  @if(this.center.lat !== 0) {
+
+    <app-map [center]="center" [options]="options" />
+
+    <div>Latitude: {{display.lat}}</div>
+    <div>Longitude: {{display.lng}}</div>
+
+  }
 
 </ion-content>
