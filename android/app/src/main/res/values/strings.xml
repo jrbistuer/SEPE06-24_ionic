@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">cifo-crud</string>
-    <string name="title_activity_main">cifo-crud</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">Cifo Crud</string>
+    <string name="title_activity_main">Cifo Crud</string>
+    <string name="package_name">com.jrbistuer.cifoioniccrud</string>
+    <string name="custom_url_scheme">com.jrbistuer.cifoioniccrud</string>
 </resources>

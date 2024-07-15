@@ -7,9 +7,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:263353068362:android:204136c178824eab816fb3",
+        "mobilesdk_app_id": "1:263353068362:android:8255cf1c952e9b7a816fb3",
         "android_client_info": {
-          "package_name": "io.ionic.starter"
+          "package_name": "cat.amb.parkresidents"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvNbvxj_WqHHb8guIt-T_HAxmDqSWp5TM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263353068362:android:2777d0bb93e36a40816fb3",
+        "android_client_info": {
+          "package_name": "com.jrbistuer.cifoioniccrud"
         }
       },
       "oauth_client": [],
