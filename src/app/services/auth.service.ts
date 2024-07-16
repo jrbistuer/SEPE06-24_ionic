@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, UserCredential, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import {UserService} from "./user.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,14 @@ export class AuthService {
 
   public userEmail: string = '';
 
-  constructor(private auth: Auth) {}
+  constructor(private auth: Auth,
+              private userService: UserService) {}
 
   async register({ email, password }: {email: string; password: string}) {
     try {
-      const user = await createUserWithEmailAndPassword(this.auth, email, password);
+      const user: UserCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+      this.setUserEmail(user.user.email!);
+      await this.userService.saveUser(user.user);
       return user;
     } catch (e) {
       return null;

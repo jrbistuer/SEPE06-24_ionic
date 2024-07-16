@@ -26,3 +26,9 @@ export interface IPushNotification {
         }
     }
 }
+
+export interface IUser {
+  id?: string;
+  email: string;
+  pushToken: string;
+}

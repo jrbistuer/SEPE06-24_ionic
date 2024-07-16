@@ -3,17 +3,20 @@ import { PushNotifications } from '@capacitor/push-notifications';
 import { IPushNotification, IVacanca } from '../models/interfaces';
 import { ModalController } from '@ionic/angular/standalone';
 import { NotificationModalComponent } from '../shared/notification-modal/notification-modal.component';
+import {UserService} from "./user.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PushService {
 
-  constructor(private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController,
+              private userService: UserService) { }
 
   async addListeners() {
     await PushNotifications.addListener('registration', token => {
       console.info('PUSH Registration token: ', token.value);
+      this.userService.setUserPushToken(token.value);
     });
 
     await PushNotifications.addListener('registrationError', err => {
