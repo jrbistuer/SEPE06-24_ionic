@@ -9,6 +9,7 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { FormsModule } from '@angular/forms';
 import { VacancaFormComponent } from 'src/app/shared/vacanca-form/vacanca-form.component';
 import { Auth } from '@angular/fire/auth';
+import { SplashScreen } from '@capacitor/splash-screen';
 
 @Component({
   selector: 'app-tab2',
@@ -34,7 +35,7 @@ export class Tab2Page implements OnInit {
 
   ngOnInit() {
     console.log('TAB2 onInit');
-    
+
   }
 
   ionViewWillEnter() {
@@ -42,12 +43,13 @@ export class Tab2Page implements OnInit {
     this.vacancesService.getVacances().subscribe((vacances: IVacanca[]) => {
       console.log(vacances);
       this.vacances = vacances;
+      SplashScreen.hide();
     });
   }
 
   addVacanca(vacanca: IVacanca) {
     console.log(vacanca);
-    this.modal.dismiss(vacanca, 'add');    
+    this.modal.dismiss(vacanca, 'add');
   }
 
   cancel() {

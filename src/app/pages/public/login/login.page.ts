@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { IonContent, IonHeader, IonToolbar, IonTitle, IonItem, IonButton, IonInput } from "@ionic/angular/standalone";
+import {SplashScreen} from "@capacitor/splash-screen";
 
 @Component({
   selector: 'app-login',
@@ -26,6 +27,7 @@ export class LoginPage implements OnInit {
 			email: ['test', [Validators.required, Validators.email]],
 			password: ['', [Validators.required, Validators.minLength(6)]]
 		});
+    SplashScreen.hide();
 	}
 
 	async register() {
