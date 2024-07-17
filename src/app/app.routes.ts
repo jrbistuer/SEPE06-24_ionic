@@ -8,11 +8,15 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./pages/private/tabs/tabs.routes').then((m) => m.routes),
-    ...canActivate(redirectUnauthorizedToLogin) 
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'login',
     loadComponent: () => import('./pages/public/login/login.page').then( m => m.LoginPage),
-    ...canActivate(redirectLoggedInToHome) 
+    ...canActivate(redirectLoggedInToHome)
+  },
+  {
+    path: 'avatar',
+    loadComponent: () => import('./pages/private/avatar/avatar.page').then( m => m.AvatarPage)
   },
 ];

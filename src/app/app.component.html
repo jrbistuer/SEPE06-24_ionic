@@ -1,3 +1,40 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-menu side="start" contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu Content</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+<!--      <div align="left" style="margin-top:6%;">
+        <ion-item no-lines style="background-color:transparent">
+          <ion-avatar align="center">
+            <img src="imgs/userp.png" style="width: 32%;height: 77px;margin-left: 1px;"/>
+          </ion-avatar>
+        </ion-item>
+      </div> -->
+
+      <div align="right" style="padding-right: 85px;margin-top: -81px;">
+        <h4 style="color:black;margin-left: -8px;">User Name</h4>   <!--{{s_name}}-->
+      </div>
+
+
+      <ion-list no-lines style="background-color:transparent;margin-top: 46px;padding-left: 21px;">
+
+        <ion-item style="background-color:transparent" (click)="goToPage('avatar')">
+          <ion-icon name="ios-home-outline" item-start style="color:#5f27c0"></ion-icon>
+          <b style="color:#5f27c0">Home</b>
+        </ion-item>
+
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
+
 </ion-app>

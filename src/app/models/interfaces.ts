@@ -31,4 +31,5 @@ export interface IUser {
   id?: string;
   email: string;
   pushToken: string;
+  avatarImg?: string;
 }

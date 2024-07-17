@@ -1,8 +1,18 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon } from '@ionic/angular/standalone';
+import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButtons,
+  IonButton,
+  IonIcon,
+  IonMenu,
+  IonMenuButton
+} from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { happyOutline, logOutOutline } from 'ionicons/icons';
+import {happyOutline, logOutOutline, menuOutline} from 'ionicons/icons';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { HeaderService } from 'src/app/services/header.service';
@@ -13,7 +23,7 @@ import { MessageService } from 'src/app/services/message.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, IonButtons, IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [IonIcon, IonButton, IonButtons, IonHeader, IonToolbar, IonTitle, IonContent, IonMenu, IonMenuButton],
 })
 export class HeaderComponent implements OnDestroy {
 
@@ -27,7 +37,8 @@ export class HeaderComponent implements OnDestroy {
     private messageService: MessageService ) {
     addIcons({
       logOutOutline,
-      happyOutline
+      happyOutline,
+      menuOutline,
     });
     this.subscription = this.messageService.onMessage().subscribe((showSmiley: any) => {
       this.showSmiley = showSmiley.text;
