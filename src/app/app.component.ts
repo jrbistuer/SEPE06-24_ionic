@@ -7,22 +7,19 @@ import {
   IonMenu,
   IonRouterOutlet,
   IonTitle,
-  IonToolbar, MenuController
+  IonToolbar
 } from '@ionic/angular/standalone';
 import {Router} from "@angular/router";
+import {SidemenuComponent} from "./shared/sidemenu/sidemenu.component";
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonApp, IonRouterOutlet, IonContent, IonHeader, IonTitle, IonToolbar, IonMenu, IonList, IonItem, IonIcon],
+  imports: [IonApp, IonRouterOutlet, IonContent, SidemenuComponent],
 })
 export class AppComponent {
-  constructor(private router: Router,
-              private menuCtrl: MenuController) {}
 
-  goToPage(page: string) {
-    this.router.navigateByUrl(page, { replaceUrl: true });
-    this.menuCtrl.close();
-  }
+  constructor() {}
+
 }

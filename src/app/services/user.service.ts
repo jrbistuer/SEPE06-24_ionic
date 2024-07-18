@@ -29,6 +29,7 @@ export class UserService {
     return new Promise((success, error) => {
       this.getUserById(this.auth.currentUser!.uid).subscribe((user: IUser) => {
         console.log('user', user);
+        console.log('auth user', this.auth.currentUser);
         if (user === undefined) {
           const test = this.saveUser(this.auth.currentUser!);
           console.log('test', test);
@@ -61,7 +62,8 @@ export class UserService {
     const u: IUser = {
       id: user.uid,
       email: user.email || '',
-      pushToken: ''
+      pushToken: '',
+      avatarImg: ''
     }
     return setDoc(doc(this.firestore, 'users', this.auth.currentUser!.uid), u);
   }

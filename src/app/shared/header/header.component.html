@@ -1,7 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      @if (showMenu) {
+        <ion-menu-button></ion-menu-button>
+      } @else {
+        <ion-back-button defaultHref="tabs/tab2"></ion-back-button>
+      }
     </ion-buttons>
     <ion-title>
       {{title}}

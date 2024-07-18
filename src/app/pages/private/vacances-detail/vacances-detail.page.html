@@ -1,0 +1,14 @@
+
+@if(vacanca$) {
+
+  <app-header [title]="(vacanca$ | async)?.nom || ''" [showMenu]="false"></app-header>
+
+  <ion-content [fullscreen]="true">
+
+    <h3>{{(vacanca$ | async)?.descripcio}}</h3>
+
+    <p>{{(vacanca$ | async)?.preu}}</p>
+
+  </ion-content>
+
+}

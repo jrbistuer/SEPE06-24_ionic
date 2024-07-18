@@ -12,12 +12,12 @@
 
     <ion-list>
         @for (v of vacances; track $index) {
-            <ion-card>
+            <ion-card (click)="goToEdit(v.id!)">
                 <ion-card-header>
                   <ion-card-title>{{v.nom}}</ion-card-title>
                   <ion-card-subtitle>{{v.preu}}</ion-card-subtitle>
                 </ion-card-header>
-              
+
                 <ion-card-content>
                   <ion-item>
                     <ion-thumbnail slot="start">
@@ -27,7 +27,7 @@
                   </ion-item>
                 </ion-card-content>
               </ion-card>
-        }    
+        }
     </ion-list>
 
 

@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { VacancaFormComponent } from 'src/app/shared/vacanca-form/vacanca-form.component';
 import { Auth } from '@angular/fire/auth';
 import { SplashScreen } from '@capacitor/splash-screen';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tab2',
@@ -26,8 +27,8 @@ export class Tab2Page implements OnInit {
   @ViewChild(IonModal) modal!: IonModal;
 
   constructor(private vacancesService: VacancesService,
-    private auth: Auth
-  ) {
+              private auth: Auth,
+              private router: Router) {
     addIcons({
       add
     });
@@ -63,6 +64,11 @@ export class Tab2Page implements OnInit {
       v.user = this.auth.currentUser!.uid;
       this.vacancesService.addVacanca(v);
     }
+  }
+
+  goToEdit(id: string) {
+    console.log(id);
+    this.router.navigate(['/detail', id]);
   }
 
 }

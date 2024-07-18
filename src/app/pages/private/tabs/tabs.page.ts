@@ -1,5 +1,5 @@
 import { Component, EnvironmentInjector, inject } from '@angular/core';
-import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
+import {IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, IonNav} from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { triangle, ellipse, square } from 'ionicons/icons';
 import { PushService } from 'src/app/services/push.service';
@@ -11,10 +11,12 @@ import {Capacitor} from "@capacitor/core";
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss'],
   standalone: true,
-  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel],
+  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, IonNav],
 })
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
+
+  component = TabsPage;
 
   constructor(private pushService: PushService,
               private userService: UserService) {
@@ -23,7 +25,9 @@ export class TabsPage {
   }
 
   async setInitLogic() {
+
     await this.userService.checkIfUserExists();
+
     const isPushNotificationsAvailable = Capacitor.isPluginAvailable('PushNotifications');
 
     if (isPushNotificationsAvailable) {

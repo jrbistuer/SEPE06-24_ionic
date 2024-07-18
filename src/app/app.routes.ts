@@ -16,7 +16,7 @@ export const routes: Routes = [
     ...canActivate(redirectLoggedInToHome)
   },
   {
-    path: 'avatar',
-    loadComponent: () => import('./pages/private/avatar/avatar.page').then( m => m.AvatarPage)
+    path: 'vacances-detail',
+    loadComponent: () => import('./pages/private/vacances-detail/vacances-detail.page').then( m => m.VacancesDetailPage)
   },
 ];

@@ -32,7 +32,7 @@ export class AvatarService {
 
       this.userService.setAvatarImg(imageUrl);
 
-      return true;
+      return imageUrl;
     } catch (e) {
       return null;
     }

@@ -1,14 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>avatar</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [title]="title"></app-header>
 
 <ion-content [fullscreen]="true">
 
   <div class="preview">
     <ion-avatar (click)="changeImage()">
-      <img [src]="user?.avatarImg" />
+      <img [src]="usrImage" />
     </ion-avatar>
   </div>
 

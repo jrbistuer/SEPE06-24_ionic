@@ -9,7 +9,7 @@ import {
   IonButton,
   IonIcon,
   IonMenu,
-  IonMenuButton
+  IonMenuButton, IonBackButton
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {happyOutline, logOutOutline, menuOutline} from 'ionicons/icons';
@@ -23,11 +23,12 @@ import { MessageService } from 'src/app/services/message.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, IonButtons, IonHeader, IonToolbar, IonTitle, IonContent, IonMenu, IonMenuButton],
+  imports: [IonIcon, IonButton, IonButtons, IonHeader, IonToolbar, IonTitle, IonContent, IonMenu, IonMenuButton, IonBackButton],
 })
 export class HeaderComponent implements OnDestroy {
 
   @Input() title!: string;
+  @Input() showMenu: boolean = true;
   showSmiley = false;
   private subscription: Subscription;
 

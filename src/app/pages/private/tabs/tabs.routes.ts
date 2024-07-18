@@ -29,6 +29,14 @@ export const routes: Routes = [
     ],
   },
   {
+    path: 'avatar',
+    loadComponent: () => import('../../private/avatar/avatar.page').then( m => m.AvatarPage)
+  },
+  {
+    path: 'detail/:id',
+    loadComponent: () => import('../../private/vacances-detail/vacances-detail.page').then( m => m.VacancesDetailPage)
+  },
+  {
     path: '',
     redirectTo: '/tabs/tab2',
     pathMatch: 'full',
