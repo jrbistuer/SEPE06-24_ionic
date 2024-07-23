@@ -20,6 +20,8 @@ import {SidemenuComponent} from "./shared/sidemenu/sidemenu.component";
 })
 export class AppComponent {
 
-  constructor() {}
+  constructor() {
+    console.log('v.1.0.0');
+  }
 
 }
